@@ -1,0 +1,12 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © Rytotw
+
+//@version=5
+indicator('Vegas Tunnel [Ryto]', overlay=true)
+
+// vegas Tunnel trend
+ema576 = ta.ema(close, 576)
+ema676 = ta.ema(close, 676)
+shortBound = plot(ema576, color=na, title='ema576')
+LongBound = plot(ema676, color=na, title='ema676')
+fill(shortBound, LongBound, color=color.new(ema576 > ema676 ? color.green : color.red, 60))
